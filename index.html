@@ -8,10 +8,14 @@
 <title>Premier League Manager</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#071b35;color:#fff;font-family:Arial,sans-serif;-webkit-tap-highlight-color:transparent}header{text-align:center;padding:14px 8px 8px}h1{margin:0;font-size:18px;letter-spacing:1.2px}header p{margin:5px 0;color:#afbdd0;font-size:13px}.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 8px 10px;max-width:520px;margin:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{flex:0 0 auto;border:1px solid #8292a5;background:#163452;color:#fff;border-radius:7px;padding:9px 12px;font-weight:bold}.tab.active{background:#fff;color:#071b35}.app{display:flex;justify-content:center;align-items:flex-start;gap:7px;max-width:520px;margin:auto;padding:0 5px 16px}.pitch{position:relative;width:calc(100vw - 82px);max-width:390px;height:670px;border:2px solid #fff;border-radius:8px;overflow:hidden;background:repeating-linear-gradient(90deg,#168348 0,#168348 45px,#147842 45px,#147842 90px)}.halfway{position:absolute;left:0;right:0;top:50%;border-top:1.5px solid #ffffffb3}.circle{position:absolute;left:50%;top:50%;width:82px;height:82px;border:1.5px solid #ffffffb3;border-radius:50%;transform:translate(-50%,-50%)}.center-dot{position:absolute;left:50%;top:50%;width:5px;height:5px;background:#fff;border-radius:50%;transform:translate(-50%,-50%)}.box{position:absolute;left:23%;width:54%;height:71px;border:1.5px solid #ffffffb3}.box.top{top:-1px}.box.bottom{bottom:-1px}.chem-lines{position:absolute;z-index:1;inset:0;width:100%;height:100%;pointer-events:none}.chem-lines line{stroke:#f5f0df;stroke-width:1.5;stroke-linecap:round;opacity:.95}.player{position:absolute;z-index:3;width:78px;height:71px;padding:5px 3px;transform:translate(-50%,-50%);background:#fff;color:#071b35;border:2px solid #071b35;border-radius:7px;text-align:center;box-shadow:0 2px 5px #0004;cursor:pointer}.player:active{transform:translate(-50%,-50%) scale(.96)}.player-name{min-height:30px;display:flex;align-items:center;justify-content:center;font-size:11px;line-height:12px;font-weight:bold;overflow-wrap:anywhere}.player-info{min-height:25px;margin-top:3px;padding-top:3px;border-top:1px solid #bcc5cf;color:#42546a;font-size:8px;line-height:10px}.captain{display:none;position:absolute;right:-7px;top:-8px;width:21px;height:21px;border-radius:50%;background:#f2c94c;color:#071b35;font-size:12px;line-height:21px;font-weight:bold}.player.is-captain .captain{display:block}.chem{position:absolute;z-index:4;width:29px;height:29px;transform:translate(-50%,-50%)}.chem input{width:29px;height:29px;padding:0;border:2px solid #071b35;border-radius:50%;background:#fff;color:#071b35;text-align:center;font-size:13px;font-weight:bold;box-shadow:0 1px 4px #0004;-webkit-appearance:none}.scoreboard{width:66px;flex:0 0 66px;margin-top:12px;padding:8px 5px;background:#fff;color:#071b35;border-radius:8px;box-shadow:0 2px 7px #0005}.scoreboard h3{margin:0 0 10px;text-align:center;font-size:10px}.score-section{margin-bottom:13px;text-align:center}.score-section label{display:block;min-height:25px;margin-bottom:4px;font-size:8px;line-height:10px;font-weight:bold}.score-value{width:100%;height:34px;border:2px solid #071b35;border-radius:5px;background:#f2f4f7;color:#071b35;text-align:center;font-size:17px;font-weight:bold}.score-buttons{display:flex;gap:3px;margin-top:3px}.score-buttons button{width:50%;height:27px;padding:0;border:0;border-radius:4px;background:#071b35;color:#fff;font-size:17px;font-weight:bold}.total{padding-top:8px;border-top:1px solid #aab4c0;text-align:center}.total span{display:block;font-size:9px;font-weight:bold}.total strong{display:block;margin-top:4px;font-size:21px}.bottom-buttons{display:flex;gap:8px;max-width:470px;margin:auto;padding:0 9px 28px}.bottom-buttons button{flex:1;padding:11px 5px;border:1px solid #8292a5;border-radius:7px;background:#163452;color:#fff;font-size:12px;font-weight:bold}.modal{display:none;position:fixed;z-index:20;inset:0;padding:15px;overflow-y:auto;background:#000c}.modal-content{width:100%;max-width:420px;margin:12px auto;padding:20px;border-radius:12px;background:#fff;color:#071b35}.modal-content h2{margin:0 0 3px}.modal-content p{margin:0 0 12px;color:#64758a;font-size:12px}.modal-content label{display:block;margin-top:10px;font-size:11px;font-weight:bold}.modal-content input[type=text],.modal-content input[type=number]{width:100%;margin-top:3px;padding:11px;border:1px solid #aab4c0;border-radius:6px;font-size:16px}.captain-choice{display:flex!important;align-items:center;gap:9px;margin-top:15px!important;padding:10px;border-radius:6px;background:#f1f3f6;font-size:13px!important}.captain-choice input{width:21px;height:21px}.modal-buttons{display:flex;gap:8px;margin-top:18px}.modal-buttons button{width:50%;padding:13px;border:0;border-radius:7px;font-weight:bold}.cancel{background:#dfe3e8;color:#071b35}.save{background:#071b35;color:#fff}@media(max-width:370px){.pitch{width:calc(100vw - 76px)}.scoreboard{width:62px;flex-basis:62px}.player{width:70px}.player-name{font-size:10px}}@media(min-width:700px){h1{font-size:22px}.pitch{width:390px}}
+
+.main-nav{display:flex;justify-content:center;gap:8px;padding:0 8px 10px}.main-nav button{border:1px solid #8292a5;background:#163452;color:#fff;border-radius:8px;padding:10px 18px;font-weight:700}.main-nav button.active{background:#fff;color:#071b35}.view{display:none}.view.active{display:block}.match-wrap{max-width:1180px;margin:0 auto;padding:0 8px 28px}.landscape-note{text-align:center;color:#afbdd0;font-size:12px;margin:0 0 8px}.match-sheet{background:#fff;color:#071b35;border-radius:10px;padding:12px;box-shadow:0 2px 8px #0005}.manager-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}.manager-box{display:grid;grid-template-columns:90px 1fr;gap:5px 8px;align-items:center}.manager-box label,.final-row label{font-size:11px;font-weight:700}.manager-box input,.final-row input{width:100%;min-width:0;border:1px solid #9ba8b7;border-radius:5px;padding:8px;font-size:14px}.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid #071b35;border-radius:6px}.match-table{width:100%;min-width:980px;border-collapse:collapse;table-layout:fixed}.match-table th{background:#071b35;color:#fff;font-size:10px;padding:7px 3px;border-right:1px solid #6d7c8e}.match-table td{border:1px solid #9ba8b7;padding:2px;height:42px}.match-table td:first-child{text-align:center;font-weight:700;background:#eef1f5;width:34px}.match-table input{width:100%;height:34px;border:0;background:transparent;padding:4px;font-size:12px;color:#071b35}.match-table input:focus{outline:2px solid #2a74b9;border-radius:3px;background:#f3f8ff}.c-num{width:38px}.c-zone{width:82px}.c-attack{width:100px}.c-score{width:72px}.c-winner{width:90px}.c-event{width:160px}.c-outcome{width:160px}.c-standing{width:95px}.final-row{display:grid;grid-template-columns:130px minmax(140px,300px);align-items:center;gap:8px;margin-top:10px}.match-actions{display:flex;gap:8px;margin-top:12px}.match-actions button{flex:1;border:1px solid #8292a5;border-radius:7px;padding:11px;background:#163452;color:#fff;font-weight:700}.match-footnote{font-size:11px;color:#64758a;margin:10px 0 0}@media(max-width:700px) and (orientation:portrait){.match-sheet{padding:8px}.manager-grid{grid-template-columns:1fr}.landscape-note{color:#f2c94c;font-weight:700}}@media(max-width:950px) and (orientation:landscape){header{padding:7px 8px 4px}header h1{font-size:15px}.main-nav{padding-bottom:6px}.main-nav button{padding:7px 14px}.match-wrap{padding:0 5px 15px}.match-sheet{padding:7px}.manager-grid{grid-template-columns:1fr 1fr;margin-bottom:6px}.manager-box{grid-template-columns:62px 1fr}.manager-box input{padding:5px}.match-table{min-width:900px}.match-table td{height:34px}.match-table input{height:29px}.match-table th{padding:5px 2px}.landscape-note{display:none}}
 </style>
 </head>
 <body>
-<header><h1>PREMIER LEAGUE MANAGER</h1><p id="formationTitle">Spillerplade · 4-4-2</p></header>
+<header><h1>PREMIER LEAGUE MANAGER</h1><p id="pageTitle">Spillerplade · 4-4-2</p></header>
+<nav class="main-nav"><button id="showLineups" class="active">OPSTILLINGER</button><button id="showMatch">KAMPARK</button></nav>
+<section id="lineupView" class="view active">
 <nav class="tabs" id="tabs"></nav>
 <div class="app">
   <main class="pitch" id="pitch">
@@ -28,6 +32,21 @@
   </aside>
 </div>
 <div class="bottom-buttons"><button id="saveAll">GEM</button><button id="resetAll">NULSTIL DENNE FORMATION</button></div>
+</section>
+<section id="matchView" class="view">
+<div class="match-wrap">
+<p class="landscape-note">Vend telefonen vandret for bedst overblik.</p>
+<div class="match-sheet">
+<div class="manager-grid">
+<div class="manager-box"><label>MANAGER A</label><input id="managerA" type="text"><label>TAKTIK</label><input id="tacticA" type="text"></div>
+<div class="manager-box"><label>MANAGER B</label><input id="managerB" type="text"><label>TAKTIK</label><input id="tacticB" type="text"></div>
+</div>
+<div class="table-scroll"><table class="match-table"><thead><tr><th class="c-num">#</th><th class="c-zone">ZONE</th><th class="c-attack">ANGREB</th><th class="c-score">A DUELSCORE</th><th class="c-score">B DUELSCORE</th><th class="c-winner">VINDER</th><th class="c-event">HÆNDELSE</th><th class="c-outcome">UDFALD</th><th class="c-standing">STILLING</th></tr></thead><tbody id="matchRows"></tbody></table></div>
+<div class="final-row"><label>SLUTRESULTAT</label><input id="finalResult" type="text"></div>
+<div class="match-actions"><button id="saveMatch">GEM KAMP</button><button id="resetMatch">NULSTIL KAMP</button></div>
+<p class="match-footnote">Hændelseskast tæller ikke som duel.</p>
+</div></div>
+</section>
 <div class="modal" id="modal"><div class="modal-content"><h2>Spillerkort</h2><p>Indtast spillerens oplysninger.</p><label>NAVN</label><input id="pName" type="text"><label>LAND</label><input id="pCountry" type="text"><label>KLUB</label><input id="pClub" type="text"><label>SÆSON</label><input id="pSeason" type="text"><label>VÆRDI</label><input id="pValue" type="number" inputmode="numeric"><label class="captain-choice"><input id="pCaptain" type="checkbox">Vælg som kaptajn</label><div class="modal-buttons"><button class="cancel" id="cancel">ANNULLER</button><button class="save" id="savePlayer">GEM</button></div></div></div>
 <script>
 const F={
@@ -44,7 +63,7 @@ for(const k of Object.keys(F)){try{data[k]=JSON.parse(localStorage.getItem("plm-
 const $=id=>document.getElementById(id);
 function persist(){localStorage.setItem("plm-"+current,JSON.stringify(data[current]))}
 function midpoint(a,b){return[(a[0]+b[0])/2,(a[1]+b[1])/2]}
-function draw(){const cfg=F[current],d=data[current];$("formationTitle").textContent="Spillerplade · "+current;document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.f===current));$("playersLayer").innerHTML="";cfg.p.forEach((pos,i)=>{const p=d.players[i]||emptyPlayer(),card=document.createElement("div");card.className="player"+(p.captain?" is-captain":"");card.style.left=pos[0]+"%";card.style.top=pos[1]+"%";card.innerHTML='<div class="captain">C</div><div class="player-name"></div><div class="player-info"></div>';card.querySelector(".player-name").textContent=p.name||"";card.querySelector(".player-info").textContent=[p.country,p.club,p.season,p.value?"Værdi "+p.value:""].filter(Boolean).join(" · ");card.onclick=()=>openPlayer(i);$("playersLayer").appendChild(card)});
+function draw(){const cfg=F[current],d=data[current];$("pageTitle").textContent="Spillerplade · "+current;document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.f===current));$("playersLayer").innerHTML="";cfg.p.forEach((pos,i)=>{const p=d.players[i]||emptyPlayer(),card=document.createElement("div");card.className="player"+(p.captain?" is-captain":"");card.style.left=pos[0]+"%";card.style.top=pos[1]+"%";card.innerHTML='<div class="captain">C</div><div class="player-name"></div><div class="player-info"></div>';card.querySelector(".player-name").textContent=p.name||"";card.querySelector(".player-info").textContent=[p.country,p.club,p.season,p.value?"Værdi "+p.value:""].filter(Boolean).join(" · ");card.onclick=()=>openPlayer(i);$("playersLayer").appendChild(card)});
 $("chemLines").innerHTML="";$("chemLayer").innerHTML="";cfg.e.forEach((edge,i)=>{const a=cfg.p[edge[0]],b=cfg.p[edge[1]],m=midpoint(a,b);const line=document.createElementNS("http://www.w3.org/2000/svg","line");line.setAttribute("x1",a[0]);line.setAttribute("y1",a[1]);line.setAttribute("x2",b[0]);line.setAttribute("y2",b[1]);$("chemLines").appendChild(line);const wrap=document.createElement("div");wrap.className="chem";wrap.style.left=m[0]+"%";wrap.style.top=m[1]+"%";const input=document.createElement("input");input.inputMode="numeric";input.maxLength=2;input.value=d.chem[i]||"";input.oninput=()=>{input.value=input.value.replace(/[^0-9-]/g,"").slice(0,2);d.chem[i]=input.value;persist()};wrap.appendChild(input);$("chemLayer").appendChild(wrap)});["attack","midfield","defence"].forEach(k=>$(k).value=Number(d.scores[k])||0);total()}
 function openPlayer(i){editing=i;const p=data[current].players[i]||emptyPlayer();$("pName").value=p.name||"";$("pCountry").value=p.country||"";$("pClub").value=p.club||"";$("pSeason").value=p.season||"";$("pValue").value=p.value||"";$("pCaptain").checked=!!p.captain;$("modal").style.display="block";setTimeout(()=>$("pName").focus(),100)}
 function closeModal(){$("modal").style.display="none";editing=null}
@@ -55,6 +74,35 @@ $("cancel").onclick=closeModal;$("modal").onclick=e=>{if(e.target===$("modal"))c
 function saveScores(){["attack","midfield","defence"].forEach(k=>data[current].scores[k]=Number($(k).value)||0);persist();total()}
 document.querySelectorAll(".score-value").forEach(i=>i.oninput=saveScores);document.querySelectorAll("[data-score]").forEach(b=>b.onclick=()=>{$(b.dataset.score).value=(Number($(b.dataset.score).value)||0)+Number(b.dataset.step);saveScores()});
 $("saveAll").onclick=()=>{saveScores();alert(current+" er gemt på enheden.")};$("resetAll").onclick=()=>{if(confirm("Vil du nulstille "+current+"?")){data[current]=blank(current);localStorage.removeItem("plm-"+current);draw()}};
+
+const MATCH_KEY="plm-match-sheet";
+const MATCH_FIELDS=["zone","attack","scoreA","scoreB","winner","event","outcome","standing"];
+function emptyMatch(){return{managerA:"",tacticA:"",managerB:"",tacticB:"",finalResult:"",rows:Array.from({length:10},()=>Object.fromEntries(MATCH_FIELDS.map(k=>[k,""])))};}
+let matchData;
+try{matchData=JSON.parse(localStorage.getItem(MATCH_KEY))||emptyMatch()}catch{matchData=emptyMatch()}
+function persistMatch(){localStorage.setItem(MATCH_KEY,JSON.stringify(matchData))}
+function buildMatch(){
+  $("matchRows").innerHTML="";
+  matchData.rows.forEach((row,i)=>{
+    const tr=document.createElement("tr");
+    const number=document.createElement("td");number.textContent=i+1;tr.appendChild(number);
+    MATCH_FIELDS.forEach(field=>{const td=document.createElement("td"),input=document.createElement("input");input.type="text";input.value=row[field]||"";input.dataset.row=i;input.dataset.field=field;input.addEventListener("input",()=>{matchData.rows[i][field]=input.value;persistMatch()});td.appendChild(input);tr.appendChild(td)});
+    $("matchRows").appendChild(tr);
+  });
+  ["managerA","tacticA","managerB","tacticB","finalResult"].forEach(id=>{$(id).value=matchData[id]||"";$(id).oninput=()=>{matchData[id]=$(id).value;persistMatch()}});
+}
+function showView(name){
+  const lineup=name==="lineup";
+  $("lineupView").classList.toggle("active",lineup);$("matchView").classList.toggle("active",!lineup);
+  $("showLineups").classList.toggle("active",lineup);$("showMatch").classList.toggle("active",!lineup);
+  $("pageTitle").textContent=lineup?"Spillerplade · "+current:"Kampark · 10 dueller";
+}
+$("showLineups").onclick=()=>showView("lineup");
+$("showMatch").onclick=()=>showView("match");
+$("saveMatch").onclick=()=>{persistMatch();alert("Kampen er gemt på enheden.")};
+$("resetMatch").onclick=()=>{if(confirm("Vil du nulstille hele kamparket?")){matchData=emptyMatch();localStorage.removeItem(MATCH_KEY);buildMatch()}};
+buildMatch();
+
 draw();
 </script>
 </body>
