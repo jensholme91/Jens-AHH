@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premier League Manager</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #071b35;
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 18px 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 21px;
+    letter-spacing: 1px;
+}
+
+header p {
+    margin: 6px 0 0;
+    color: #9fb2c8;
+    font-size: 14px;
+}
+
+.pitch {
+    position: relative;
+    width: 94%;
+    max-width: 500px;
+    height: 650px;
+    margin: 0 auto 20px;
+    border: 3px solid rgba(255,255,255,.8);
+    border-radius: 10px;
+    background:
+        linear-gradient(
+            rgba(20,125,70,.93),
+            rgba(14,104,57,.93)
+        );
+    overflow: hidden;
+}
+
+.pitch:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 2px solid rgba(255,255,255,.65);
+}
+
+.center-circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgba(255,255,255,.65);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.player {
+    position: absolute;
+    width: 78px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    cursor: pointer;
+}
+
+.shirt {
+    width: 52px;
+    height: 45px;
+    margin: auto;
+   
