@@ -2,7 +2,12 @@
 <html lang="da">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+>
+
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#071b35">
 
@@ -43,16 +48,22 @@ header p {
   justify-content: center;
   align-items: flex-start;
   gap: 7px;
-  padding: 0 5px 18px;
-  max-width: 500px;
+  max-width: 510px;
   margin: auto;
+  padding: 0 5px 18px;
 }
+
+/* BANE */
 
 .pitch {
   position: relative;
   width: calc(100vw - 82px);
   max-width: 390px;
   height: 670px;
+  border: 2px solid white;
+  border-radius: 8px;
+  overflow: hidden;
+
   background:
     repeating-linear-gradient(
       90deg,
@@ -61,15 +72,11 @@ header p {
       #147842 45px,
       #147842 90px
     );
-  border: 2px solid white;
-  border-radius: 8px;
-  overflow: hidden;
 }
-
-/* Banelinjer */
 
 .halfway {
   position: absolute;
+  z-index: 0;
   left: 0;
   right: 0;
   top: 50%;
@@ -78,6 +85,7 @@ header p {
 
 .circle {
   position: absolute;
+  z-index: 0;
   left: 50%;
   top: 50%;
   width: 82px;
@@ -87,9 +95,22 @@ header p {
   transform: translate(-50%, -50%);
 }
 
+.center-dot {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .top-box,
 .bottom-box {
   position: absolute;
+  z-index: 0;
   left: 23%;
   width: 54%;
   height: 71px;
@@ -104,33 +125,41 @@ header p {
   bottom: -1px;
 }
 
-.center-dot {
+/* KEMISTREGER */
+
+.chemistry-lines {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 5px;
-  height: 5px;
-  background: white;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
-/* Spillerkort */
+.chemistry-lines line {
+  stroke: #f5f0df;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: .95;
+}
+
+/* SPILLERKORT */
 
 .player {
   position: absolute;
+  z-index: 3;
   width: 78px;
   min-height: 71px;
+  padding: 5px 3px;
   transform: translate(-50%, -50%);
+
   background: white;
   color: #071b35;
   border: 2px solid #071b35;
   border-radius: 7px;
-  padding: 5px 3px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,.25);
   cursor: pointer;
-  z-index: 3;
 }
 
 .player:active {
@@ -141,9 +170,11 @@ header p {
   position: absolute;
   top: -8px;
   left: -7px;
+
   width: 21px;
   height: 21px;
   border-radius: 50%;
+
   background: #071b35;
   color: white;
   font-size: 11px;
@@ -156,6 +187,7 @@ header p {
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-size: 11px;
   line-height: 12px;
   font-weight: bold;
@@ -163,69 +195,75 @@ header p {
 }
 
 .player-info {
-  border-top: 1px solid #bcc5cf;
+  min-height: 23px;
   margin-top: 3px;
   padding-top: 3px;
+
+  border-top: 1px solid #bcc5cf;
+  color: #42546a;
   font-size: 8px;
   line-height: 10px;
-  color: #42546a;
-  min-height: 23px;
 }
 
 .captain {
+  display: none;
   position: absolute;
   right: -7px;
   top: -8px;
+
   width: 21px;
   height: 21px;
   border-radius: 50%;
+
   background: #f2c94c;
   color: #071b35;
   font-size: 12px;
   line-height: 21px;
   font-weight: bold;
-  display: none;
 }
 
 .player.is-captain .captain {
   display: block;
 }
 
-/* Kemifelter */
+/* KEMIFELTER */
 
 .chemistry {
   position: absolute;
-  transform: translate(-50%, -50%);
+  z-index: 4;
   width: 29px;
   height: 29px;
-  z-index: 4;
+  transform: translate(-50%, -50%);
 }
 
 .chemistry input {
   width: 29px;
   height: 29px;
+  padding: 0;
+
   border: 2px solid #071b35;
   border-radius: 50%;
   background: white;
   color: #071b35;
+
   text-align: center;
   font-size: 13px;
   font-weight: bold;
-  padding: 0;
   box-shadow: 0 1px 4px rgba(0,0,0,.25);
   -webkit-appearance: none;
 }
 
-/* Pointtæller */
+/* POINTTÆLLER */
 
 .scoreboard {
   width: 66px;
   flex: 0 0 66px;
   margin-top: 12px;
+  padding: 8px 5px;
+
   background: white;
   color: #071b35;
   border-radius: 8px;
-  padding: 8px 5px;
   box-shadow: 0 2px 7px rgba(0,0,0,.3);
 }
 
@@ -250,19 +288,15 @@ header p {
   font-weight: bold;
 }
 
-.score-controls {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3px;
-}
-
 .score-value {
   width: 100%;
   height: 34px;
+
   border: 2px solid #071b35;
   border-radius: 5px;
   background: #f2f4f7;
   color: #071b35;
+
   text-align: center;
   font-size: 17px;
   font-weight: bold;
@@ -271,22 +305,26 @@ header p {
 .score-buttons {
   display: flex;
   gap: 3px;
+  margin-top: 3px;
 }
 
 .score-buttons button {
   width: 50%;
   height: 27px;
+  padding: 0;
+
   border: 0;
   border-radius: 4px;
   background: #071b35;
   color: white;
+
   font-size: 17px;
   font-weight: bold;
 }
 
 .total-box {
-  border-top: 1px solid #aab4c0;
   padding-top: 8px;
+  border-top: 1px solid #aab4c0;
   text-align: center;
 }
 
@@ -302,37 +340,40 @@ header p {
   font-size: 21px;
 }
 
-/* Knapper */
+/* KNAPPER */
 
 .bottom-buttons {
   display: flex;
   gap: 8px;
   max-width: 470px;
-  padding: 0 9px 28px;
   margin: auto;
+  padding: 0 9px 28px;
 }
 
 .bottom-buttons button {
   flex: 1;
+  padding: 11px 5px;
+
   border: 1px solid #8292a5;
   border-radius: 7px;
-  padding: 11px 5px;
   background: #163452;
   color: white;
-  font-weight: bold;
+
   font-size: 12px;
+  font-weight: bold;
 }
 
-/* Popup */
+/* POPUP */
 
 .modal {
   display: none;
   position: fixed;
-  inset: 0;
   z-index: 20;
-  background: rgba(0,0,0,.75);
+  inset: 0;
+
   padding: 15px;
   overflow-y: auto;
+  background: rgba(0,0,0,.75);
 }
 
 .modal-content {
@@ -340,6 +381,7 @@ header p {
   max-width: 420px;
   margin: 12px auto;
   padding: 20px;
+
   border-radius: 12px;
   background: white;
   color: #071b35;
@@ -368,20 +410,23 @@ header p {
   width: 100%;
   margin-top: 3px;
   padding: 11px;
+
   border: 1px solid #aab4c0;
   border-radius: 6px;
   font-size: 16px;
 }
 
 .captain-choice {
-  display: flex;
+  display: flex !important;
   align-items: center;
   gap: 9px;
-  margin-top: 15px;
+
+  margin-top: 15px !important;
   padding: 10px;
   border-radius: 6px;
   background: #f1f3f6;
-  font-size: 13px;
+
+  font-size: 13px !important;
   font-weight: bold;
 }
 
@@ -398,9 +443,9 @@ header p {
 
 .modal-buttons button {
   width: 50%;
+  padding: 13px 6px;
   border: 0;
   border-radius: 7px;
-  padding: 13px 6px;
   font-weight: bold;
 }
 
@@ -432,6 +477,16 @@ header p {
     font-size: 10px;
   }
 }
+
+@media (min-width: 700px) {
+  header h1 {
+    font-size: 22px;
+  }
+
+  .pitch {
+    width: 390px;
+  }
+}
 </style>
 </head>
 
@@ -451,6 +506,42 @@ header p {
     <div class="center-dot"></div>
     <div class="top-box"></div>
     <div class="bottom-box"></div>
+
+    <!-- Kemistreger bag spillere og kemifelter -->
+
+    <svg
+      class="chemistry-lines"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <!-- Angribere -->
+      <line x1="34" y1="12" x2="66" y2="12"></line>
+
+      <!-- Angreb til midtbane -->
+      <line x1="34" y1="12" x2="38" y2="37"></line>
+      <line x1="66" y1="12" x2="62" y2="37"></line>
+
+      <!-- Midtbane vandret -->
+      <line x1="13" y1="37" x2="38" y2="37"></line>
+      <line x1="38" y1="37" x2="62" y2="37"></line>
+      <line x1="62" y1="37" x2="87" y2="37"></line>
+
+      <!-- Midtbane til forsvar -->
+      <line x1="13" y1="37" x2="13" y2="67"></line>
+      <line x1="38" y1="37" x2="38" y2="67"></line>
+      <line x1="62" y1="37" x2="62" y2="67"></line>
+      <line x1="87" y1="37" x2="87" y2="67"></line>
+
+      <!-- Forsvar vandret -->
+      <line x1="13" y1="67" x2="38" y2="67"></line>
+      <line x1="38" y1="67" x2="62" y2="67"></line>
+      <line x1="62" y1="67" x2="87" y2="67"></line>
+
+      <!-- Forsvar til målmand -->
+      <line x1="38" y1="67" x2="50" y2="90"></line>
+      <line x1="62" y1="67" x2="50" y2="90"></line>
+    </svg>
 
     <!-- Angreb -->
 
@@ -537,72 +628,166 @@ header p {
       <div class="player-info">Tryk for at udfylde</div>
     </div>
 
-    <!-- Kemi mellem angribere -->
+    <!-- Kemi: angribere -->
 
     <div class="chemistry" style="left:50%;top:12%;">
-      <input class="chem-input" data-chem="0" inputmode="numeric" maxlength="2">
+      <input
+        class="chem-input"
+        data-chem="0"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi mellem angribere"
+      >
     </div>
 
-    <!-- Kemi mellem angreb og midtbane -->
+    <!-- Kemi: angreb til midtbane -->
 
-    <div class="chemistry" style="left:35%;top:25%;">
-      <input class="chem-input" data-chem="1" inputmode="numeric" maxlength="2">
+    <div class="chemistry" style="left:36%;top:24.5%;">
+      <input
+        class="chem-input"
+        data-chem="1"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi venstre angriber til midtbane"
+      >
     </div>
 
-    <div class="chemistry" style="left:65%;top:25%;">
-      <input class="chem-input" data-chem="2" inputmode="numeric" maxlength="2">
+    <div class="chemistry" style="left:64%;top:24.5%;">
+      <input
+        class="chem-input"
+        data-chem="2"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi højre angriber til midtbane"
+      >
     </div>
 
-    <!-- Kemi på midtbanen -->
+    <!-- Kemi: midtbane vandret -->
 
-    <div class="chemistry" style="left:25%;top:37%;">
-      <input class="chem-input" data-chem="3" inputmode="numeric" maxlength="2">
+    <div class="chemistry" style="left:25.5%;top:37%;">
+      <input
+        class="chem-input"
+        data-chem="3"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi på venstre midtbane"
+      >
     </div>
 
     <div class="chemistry" style="left:50%;top:37%;">
-      <input class="chem-input" data-chem="4" inputmode="numeric" maxlength="2">
+      <input
+        class="chem-input"
+        data-chem="4"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi på central midtbane"
+      >
     </div>
 
-    <div class="chemistry" style="left:75%;top:37%;">
-      <input class="chem-input" data-chem="5" inputmode="numeric" maxlength="2">
+    <div class="chemistry" style="left:74.5%;top:37%;">
+      <input
+        class="chem-input"
+        data-chem="5"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi på højre midtbane"
+      >
     </div>
 
-    <!-- Kemi mellem midtbane og forsvar -->
+    <!-- Kemi: midtbane til forsvar -->
 
-    <div class="chemistry" style="left:24%;top:52%;">
-      <input class="chem-input" data-chem="6" inputmode="numeric" maxlength="2">
+    <div class="chemistry" style="left:13%;top:52%;">
+      <input
+        class="chem-input"
+        data-chem="6"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi venstre midtbane til forsvar"
+      >
     </div>
 
-    <div class="chemistry" style="left:50%;top:52%;">
-      <input class="chem-input" data-chem="7" inputmode="numeric" maxlength="2">
+    <div class="chemistry" style="left:38%;top:52%;">
+      <input
+        class="chem-input"
+        data-chem="7"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi central venstre midtbane til forsvar"
+      >
     </div>
 
-    <div class="chemistry" style="left:76%;top:52%;">
-      <input class="chem-input" data-chem="8" inputmode="numeric" maxlength="2">
+    <div class="chemistry" style="left:62%;top:52%;">
+      <input
+        class="chem-input"
+        data-chem="8"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi central højre midtbane til forsvar"
+      >
     </div>
 
-    <!-- Kemi i forsvaret -->
+    <div class="chemistry" style="left:87%;top:52%;">
+      <input
+        class="chem-input"
+        data-chem="9"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi højre midtbane til forsvar"
+      >
+    </div>
 
-    <div class="chemistry" style="left:25%;top:67%;">
-      <input class="chem-input" data-chem="9" inputmode="numeric" maxlength="2">
+    <!-- Kemi: forsvar vandret -->
+
+    <div class="chemistry" style="left:25.5%;top:67%;">
+      <input
+        class="chem-input"
+        data-chem="10"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi i venstre forsvar"
+      >
     </div>
 
     <div class="chemistry" style="left:50%;top:67%;">
-      <input class="chem-input" data-chem="10" inputmode="numeric" maxlength="2">
+      <input
+        class="chem-input"
+        data-chem="11"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi mellem midterforsvarere"
+      >
     </div>
 
-    <div class="chemistry" style="left:75%;top:67%;">
-      <input class="chem-input" data-chem="11" inputmode="numeric" maxlength="2">
+    <div class="chemistry" style="left:74.5%;top:67%;">
+      <input
+        class="chem-input"
+        data-chem="12"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi i højre forsvar"
+      >
     </div>
 
-    <!-- Kemi til målmand -->
+    <!-- Kemi: forsvar til målmand -->
 
-    <div class="chemistry" style="left:38%;top:80%;">
-      <input class="chem-input" data-chem="12" inputmode="numeric" maxlength="2">
+    <div class="chemistry" style="left:44%;top:78.5%;">
+      <input
+        class="chem-input"
+        data-chem="13"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi venstre midterforsvarer til målmand"
+      >
     </div>
 
-    <div class="chemistry" style="left:62%;top:80%;">
-      <input class="chem-input" data-chem="13" inputmode="numeric" maxlength="2">
+    <div class="chemistry" style="left:56%;top:78.5%;">
+      <input
+        class="chem-input"
+        data-chem="14"
+        inputmode="numeric"
+        maxlength="2"
+        aria-label="Kemi højre midterforsvarer til målmand"
+      >
     </div>
 
   </div>
@@ -614,35 +799,80 @@ header p {
     <h3>KÆDEPOINT</h3>
 
     <div class="score-section">
-      <label>ANGREB</label>
-      <div class="score-controls">
-        <input id="attackScore" class="score-value" type="number" value="0">
-        <div class="score-buttons">
-          <button type="button" onclick="changeScore('attackScore',-1)">−</button>
-          <button type="button" onclick="changeScore('attackScore',1)">+</button>
-        </div>
+      <label for="attackScore">ANGREB</label>
+
+      <input
+        id="attackScore"
+        class="score-value"
+        type="number"
+        value="0"
+        inputmode="numeric"
+      >
+
+      <div class="score-buttons">
+        <button
+          type="button"
+          onclick="changeScore('attackScore', -1)"
+          aria-label="Træk ét point fra angreb"
+        >−</button>
+
+        <button
+          type="button"
+          onclick="changeScore('attackScore', 1)"
+          aria-label="Tilføj ét point til angreb"
+        >+</button>
       </div>
     </div>
 
     <div class="score-section">
-      <label>MIDTBANE</label>
-      <div class="score-controls">
-        <input id="midfieldScore" class="score-value" type="number" value="0">
-        <div class="score-buttons">
-          <button type="button" onclick="changeScore('midfieldScore',-1)">−</button>
-          <button type="button" onclick="changeScore('midfieldScore',1)">+</button>
-        </div>
+      <label for="midfieldScore">MIDTBANE</label>
+
+      <input
+        id="midfieldScore"
+        class="score-value"
+        type="number"
+        value="0"
+        inputmode="numeric"
+      >
+
+      <div class="score-buttons">
+        <button
+          type="button"
+          onclick="changeScore('midfieldScore', -1)"
+          aria-label="Træk ét point fra midtbane"
+        >−</button>
+
+        <button
+          type="button"
+          onclick="changeScore('midfieldScore', 1)"
+          aria-label="Tilføj ét point til midtbane"
+        >+</button>
       </div>
     </div>
 
     <div class="score-section">
-      <label>FORSVAR + MM</label>
-      <div class="score-controls">
-        <input id="defenceScore" class="score-value" type="number" value="0">
-        <div class="score-buttons">
-          <button type="button" onclick="changeScore('defenceScore',-1)">−</button>
-          <button type="button" onclick="changeScore('defenceScore',1)">+</button>
-        </div>
+      <label for="defenceScore">FORSVAR + MM</label>
+
+      <input
+        id="defenceScore"
+        class="score-value"
+        type="number"
+        value="0"
+        inputmode="numeric"
+      >
+
+      <div class="score-buttons">
+        <button
+          type="button"
+          onclick="changeScore('defenceScore', -1)"
+          aria-label="Træk ét point fra forsvar og målmand"
+        >−</button>
+
+        <button
+          type="button"
+          onclick="changeScore('defenceScore', 1)"
+          aria-label="Tilføj ét point til forsvar og målmand"
+        >+</button>
       </div>
     </div>
 
@@ -667,7 +897,10 @@ header p {
   <div class="modal-content">
 
     <h2>Spillerkort</h2>
-    <p class="modal-help">Indtast oplysningerne og tryk GEM.</p>
+
+    <p class="modal-help">
+      Indtast oplysningerne og tryk GEM.
+    </p>
 
     <label for="playerName">NAVN</label>
     <input id="playerName" type="text" placeholder="Fx Haaland">
@@ -676,13 +909,22 @@ header p {
     <input id="playerCountry" type="text" placeholder="Fx Norge">
 
     <label for="playerClub">KLUB</label>
-    <input id="playerClub" type="text" placeholder="Fx Manchester City">
+    <input
+      id="playerClub"
+      type="text"
+      placeholder="Fx Manchester City"
+    >
 
     <label for="playerSeason">SÆSON</label>
     <input id="playerSeason" type="text" placeholder="Fx 2025/26">
 
     <label for="playerValue">VÆRDI</label>
-    <input id="playerValue" type="number" inputmode="numeric" placeholder="Fx 95">
+    <input
+      id="playerValue"
+      type="number"
+      inputmode="numeric"
+      placeholder="Fx 95"
+    >
 
     <label class="captain-choice">
       <input id="playerCaptain" type="checkbox">
@@ -690,8 +932,21 @@ header p {
     </label>
 
     <div class="modal-buttons">
-      <button class="cancel" type="button" onclick="closeModal()">ANNULLER</button>
-      <button class="save" type="button" onclick="savePlayer()">GEM</button>
+      <button
+        class="cancel"
+        type="button"
+        onclick="closeModal()"
+      >
+        ANNULLER
+      </button>
+
+      <button
+        class="save"
+        type="button"
+        onclick="savePlayer()"
+      >
+        GEM
+      </button>
     </div>
 
   </div>
@@ -699,57 +954,90 @@ header p {
 </div>
 
 <script>
-const STORAGE_KEY = "premierLeagueManager442";
+const STORAGE_KEY = "premierLeagueManager442V2";
 
 let currentPlayer = null;
 
-let appData = {
-  players: Array.from({ length: 11 }, () => ({
+function emptyPlayer() {
+  return {
     name: "",
     country: "",
     club: "",
     season: "",
     value: "",
     captain: false
-  })),
-  chemistry: Array(14).fill(""),
-  scores: {
-    attack: 0,
-    midfield: 0,
-    defence: 0
-  }
-};
+  };
+}
+
+function createEmptyData() {
+  return {
+    players: Array.from({ length: 11 }, emptyPlayer),
+    chemistry: Array(15).fill(""),
+    scores: {
+      attack: 0,
+      midfield: 0,
+      defence: 0
+    }
+  };
+}
+
+let appData = createEmptyData();
 
 function loadData() {
-  const saved = localStorage.getItem(STORAGE_KEY);
+  const newSaved = localStorage.getItem(STORAGE_KEY);
+
+  /*
+    Forsøger også at hente data fra den tidligere version,
+    så allerede indtastede spillerdata ikke nødvendigvis mistes.
+  */
+
+  const oldSaved = localStorage.getItem(
+    "premierLeagueManager442"
+  );
+
+  const saved = newSaved || oldSaved;
 
   if (saved) {
     try {
       const parsed = JSON.parse(saved);
 
-      if (parsed.players) {
-        appData.players = parsed.players;
+      if (Array.isArray(parsed.players)) {
+        appData.players = Array.from(
+          { length: 11 },
+          (_, index) => ({
+            ...emptyPlayer(),
+            ...(parsed.players[index] || {})
+          })
+        );
       }
 
-      if (parsed.chemistry) {
-        appData.chemistry = parsed.chemistry;
+      if (Array.isArray(parsed.chemistry)) {
+        appData.chemistry = Array.from(
+          { length: 15 },
+          (_, index) => parsed.chemistry[index] || ""
+        );
       }
 
       if (parsed.scores) {
-        appData.scores = parsed.scores;
+        appData.scores = {
+          attack: Number(parsed.scores.attack) || 0,
+          midfield: Number(parsed.scores.midfield) || 0,
+          defence: Number(parsed.scores.defence) || 0
+        };
       }
     } catch (error) {
       console.log("Gemte data kunne ikke læses.");
     }
   }
 
+  persist();
   renderAll();
 }
 
 function renderAll() {
   document.querySelectorAll(".player").forEach((card) => {
     const index = Number(card.dataset.player);
-    const player = appData.players[index] || {};
+    const player = appData.players[index] || emptyPlayer();
 
     const nameField = card.querySelector(".player-name");
     const infoField = card.querySelector(".player-info");
@@ -765,9 +1053,14 @@ function renderAll() {
     ].filter(Boolean);
 
     infoField.textContent =
-      info.length ? info.join(" · ") : "Tryk for at udfylde";
+      info.length
+        ? info.join(" · ")
+        : "Tryk for at udfylde";
 
-    card.classList.toggle("is-captain", Boolean(player.captain));
+    card.classList.toggle(
+      "is-captain",
+      Boolean(player.captain)
+    );
   });
 
   document.querySelectorAll(".chem-input").forEach((input) => {
@@ -790,17 +1083,28 @@ function renderAll() {
 function openPlayer(index) {
   currentPlayer = index;
 
-  const player = appData.players[index];
+  const player = appData.players[index] || emptyPlayer();
 
-  document.getElementById("playerName").value = player.name || "";
-  document.getElementById("playerCountry").value = player.country || "";
-  document.getElementById("playerClub").value = player.club || "";
-  document.getElementById("playerSeason").value = player.season || "";
-  document.getElementById("playerValue").value = player.value || "";
+  document.getElementById("playerName").value =
+    player.name || "";
+
+  document.getElementById("playerCountry").value =
+    player.country || "";
+
+  document.getElementById("playerClub").value =
+    player.club || "";
+
+  document.getElementById("playerSeason").value =
+    player.season || "";
+
+  document.getElementById("playerValue").value =
+    player.value || "";
+
   document.getElementById("playerCaptain").checked =
     Boolean(player.captain);
 
-  document.getElementById("playerModal").style.display = "block";
+  document.getElementById("playerModal").style.display =
+    "block";
 
   setTimeout(() => {
     document.getElementById("playerName").focus();
@@ -808,7 +1112,9 @@ function openPlayer(index) {
 }
 
 function closeModal() {
-  document.getElementById("playerModal").style.display = "none";
+  document.getElementById("playerModal").style.display =
+    "none";
+
   currentPlayer = null;
 }
 
@@ -827,11 +1133,21 @@ function savePlayer() {
   }
 
   appData.players[currentPlayer] = {
-    name: document.getElementById("playerName").value.trim(),
-    country: document.getElementById("playerCountry").value.trim(),
-    club: document.getElementById("playerClub").value.trim(),
-    season: document.getElementById("playerSeason").value.trim(),
-    value: document.getElementById("playerValue").value.trim(),
+    name:
+      document.getElementById("playerName").value.trim(),
+
+    country:
+      document.getElementById("playerCountry").value.trim(),
+
+    club:
+      document.getElementById("playerClub").value.trim(),
+
+    season:
+      document.getElementById("playerSeason").value.trim(),
+
+    value:
+      document.getElementById("playerValue").value.trim(),
+
     captain: captainSelected
   };
 
@@ -842,7 +1158,9 @@ function savePlayer() {
 
 function changeScore(id, amount) {
   const input = document.getElementById(id);
-  input.value = (Number(input.value) || 0) + amount;
+
+  input.value =
+    (Number(input.value) || 0) + amount;
 
   readScores();
   persist();
@@ -851,31 +1169,47 @@ function changeScore(id, amount) {
 
 function readScores() {
   appData.scores.attack =
-    Number(document.getElementById("attackScore").value) || 0;
+    Number(
+      document.getElementById("attackScore").value
+    ) || 0;
 
   appData.scores.midfield =
-    Number(document.getElementById("midfieldScore").value) || 0;
+    Number(
+      document.getElementById("midfieldScore").value
+    ) || 0;
 
   appData.scores.defence =
-    Number(document.getElementById("defenceScore").value) || 0;
+    Number(
+      document.getElementById("defenceScore").value
+    ) || 0;
 }
 
 function readChemistry() {
-  document.querySelectorAll(".chem-input").forEach((input) => {
-    const index = Number(input.dataset.chem);
-    appData.chemistry[index] = input.value.trim();
-  });
+  document.querySelectorAll(".chem-input").forEach(
+    (input) => {
+      const index = Number(input.dataset.chem);
+
+      appData.chemistry[index] =
+        input.value.trim();
+    }
+  );
 }
 
 function updateTotal() {
   const attack =
-    Number(document.getElementById("attackScore").value) || 0;
+    Number(
+      document.getElementById("attackScore").value
+    ) || 0;
 
   const midfield =
-    Number(document.getElementById("midfieldScore").value) || 0;
+    Number(
+      document.getElementById("midfieldScore").value
+    ) || 0;
 
   const defence =
-    Number(document.getElementById("defenceScore").value) || 0;
+    Number(
+      document.getElementById("defenceScore").value
+    ) || 0;
 
   document.getElementById("totalScore").textContent =
     attack + midfield + defence;
@@ -891,7 +1225,10 @@ function saveAll() {
 }
 
 function persist() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(appData)
+  );
 }
 
 function resetAll() {
@@ -905,22 +1242,16 @@ function resetAll() {
 
   localStorage.removeItem(STORAGE_KEY);
 
-  appData = {
-    players: Array.from({ length: 11 }, () => ({
-      name: "",
-      country: "",
-      club: "",
-      season: "",
-      value: "",
-      captain: false
-    })),
-    chemistry: Array(14).fill(""),
-    scores: {
-      attack: 0,
-      midfield: 0,
-      defence: 0
-    }
-  };
+  /*
+    Den gamle versions data slettes også, så de ikke
+    automatisk bliver hentet ind igen efter nulstilling.
+  */
+
+  localStorage.removeItem(
+    "premierLeagueManager442"
+  );
+
+  appData = createEmptyData();
 
   renderAll();
 }
@@ -931,26 +1262,40 @@ document.querySelectorAll(".player").forEach((card) => {
   });
 });
 
-document.querySelectorAll(".chem-input").forEach((input) => {
-  input.addEventListener("change", () => {
-    readChemistry();
-    persist();
-  });
-});
+document.querySelectorAll(".chem-input").forEach(
+  (input) => {
+    input.addEventListener("input", () => {
+      /*
+        Maks. to tegn i kemifeltet.
+      */
 
-document.querySelectorAll(".score-value").forEach((input) => {
-  input.addEventListener("change", () => {
-    readScores();
-    persist();
-    updateTotal();
-  });
-});
+      input.value = input.value
+        .replace(/[^0-9-]/g, "")
+        .slice(0, 2);
 
-document.getElementById("playerModal").addEventListener("click", (event) => {
-  if (event.target.id === "playerModal") {
-    closeModal();
+      readChemistry();
+      persist();
+    });
   }
-});
+);
+
+document.querySelectorAll(".score-value").forEach(
+  (input) => {
+    input.addEventListener("input", () => {
+      readScores();
+      persist();
+      updateTotal();
+    });
+  }
+);
+
+document
+  .getElementById("playerModal")
+  .addEventListener("click", (event) => {
+    if (event.target.id === "playerModal") {
+      closeModal();
+    }
+  });
 
 loadData();
 </script>
