@@ -3,84 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Premier League Manager</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
-
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #071b35;
-    color: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #071b35;
+  color: white;
+  text-align: center;
 }
 
-header {
-    text-align: center;
-    padding: 18px 10px;
+h1 {
+  font-size: 22px;
+  margin: 20px 0 5px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 21px;
-    letter-spacing: 1px;
-}
-
-header p {
-    margin: 6px 0 0;
-    color: #9fb2c8;
-    font-size: 14px;
+h2 {
+  font-size: 16px;
+  margin: 0 0 15px;
 }
 
 .pitch {
-    position: relative;
-    width: 94%;
-    max-width: 500px;
-    height: 650px;
-    margin: 0 auto 20px;
-    border: 3px solid rgba(255,255,255,.8);
-    border-radius: 10px;
-    background:
-        linear-gradient(
-            rgba(20,125,70,.93),
-            rgba(14,104,57,.93)
-        );
-    overflow: hidden;
-}
-
-.pitch:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    border-top: 2px solid rgba(255,255,255,.65);
-}
-
-.center-circle {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border: 2px solid rgba(255,255,255,.65);
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  position: relative;
+  width: 94vw;
+  max-width: 430px;
+  height: 650px;
+  margin: auto;
+  background: #168447;
+  border: 3px solid white;
+  border-radius: 10px;
 }
 
 .player {
-    position: absolute;
-    width: 78px;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    cursor: pointer;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: #071b35;
+  border-radius: 8px;
+  padding: 10px 6px;
+  width: 70px;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
 }
+</style>
+</head>
 
-.shirt {
-    width: 52px;
-    height: 45px;
-    margin: auto;
-   
+<body>
+
+<h1>PREMIER LEAGUE MANAGER</h1>
+<h2>4-4-2</h2>
+
+<div class="pitch">
+
+<div class="player" style="left:35%;top:15%">Spiller</div>
+<div class="player" style="left:65%;top:15%">Spiller</div>
+
+<div class="player" style="left:12%;top:40%">Spiller</div>
+<div class="player" style="left:38%;top:40%">Spiller</div>
+<div class="player" style="left:62%;top:40%">Spiller</div>
+<div class="player" style="left:88%;top:40%">Spiller</div>
+
+<div class="player" style="left:12%;top:67%">Spiller</div>
+<div class="player" style="left:38%;top:67%">Spiller</div>
+<div class="player" style="left:62%;top:67%">Spiller</div>
+<div class="player" style="left:88%;top:67%">Spiller</div>
+
+<div class="player" style="left:50%;top:88%">Målmand</div>
+
+</div>
+
+</body>
+</html>
