@@ -1,4 +1,4 @@
-const CACHE_NAME = "pl-manager-v2";
+const CACHE_NAME = "pl-manager-v3";
 
 const APP_FILES = [
   "./",
