@@ -1,0 +1,10 @@
+{
+  "name": "Premier League Manager",
+  "short_name": "PL Manager",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071b35",
+  "theme_color": "#071b35",
+  "description": "Premier League Manager spil"
+}
