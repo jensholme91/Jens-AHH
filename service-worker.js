@@ -3,7 +3,8 @@ const CACHE_NAME = "pl-manager-v2";
 const APP_FILES = [
   "./",
   "./index.html",
-  "./manifest.json"
+  "./manifest.json",
+  "./icon-512.png"
 ];
 
 self.addEventListener("install", event => {
