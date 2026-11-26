@@ -63,11 +63,23 @@ function updateDraftStatus(){
   $('cancelMove').classList.toggle('show',movingIndex!==null);
 }
 function openLockedPlayerMenu(index){
-  const p=data[current].players[index];
-  const move=confirm(p.name+'\n\nOK = FLYT SPILLER\nAnnuller = behold spilleren på pladsen');
-  if(move){movingIndex=index;pendingSelection=null;draw()}
-}
-function completeMove(targetIndex){
+    const p=data[current].players[index];
+    if(!p||!p.name)return;
+    const choice=prompt(p.name+'\n\nSkriv 1 for FLYT SPILLER\nSkriv 2 for SLET SPILLER\nTryk Annuller for at gå tilbage.');
+    if(choice===null)return;
+    if(choice==='1'){
+      movingIndex=index;pendingSelection=null;draw();return;
+    }
+    if(choice==='2'){
+      if(confirm('Er du sikker på, at '+p.name+' skal fjernes fra opstillingen?')){
+        data[current].players[index]=ep();
+        movingIndex=null;pendingSelection=null;persist();draw();
+      }
+      return;
+    }
+    alert('Vælg 1 for FLYT eller 2 for SLET.');
+  }  
+  function completeMove(targetIndex){
   if(movingIndex===null)return;
   if(targetIndex===movingIndex){movingIndex=null;draw();return}
   if(data[current].players[targetIndex]&&data[current].players[targetIndex].name){alert('Pladsen er optaget. Vælg et tomt spillerkort.');return}
